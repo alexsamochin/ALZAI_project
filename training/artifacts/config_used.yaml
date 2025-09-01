@@ -1,0 +1,32 @@
+artifact:
+  model_name: clinical_model
+  out_dir: ./artifacts
+data:
+  groupby_id: patient_id
+  path: data/patient_year_data.parquet
+  target_col: acute_event
+  year_col: calendar_year
+early_stopping_rounds: 50
+lgb_params:
+  bagging_fraction: 0.8
+  bagging_freq: 1
+  boosting_type: gbdt
+  feature_fraction: 0.8
+  is_unbalance: true
+  lambda_l1: 0.0
+  lambda_l2: 0.0
+  learning_rate: 0.05
+  max_depth: -1
+  min_data_in_leaf: 20
+  num_leaves: 31
+max_onehot_cardinality: 20
+mlflow_experiment: lgbm_imbalanced_experiment
+num_boost_round: 2000
+precision_at_k:
+- 0.01
+- 0.05
+recall_target: 0.9
+temporal:
+  prev_years: 3
+threshold_method: f1_max
+verbose_eval: 100

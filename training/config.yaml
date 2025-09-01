@@ -1,0 +1,40 @@
+
+data:
+  path: data/patient_year_data.parquet
+  year_col: calendar_year
+  target_col: acute_event
+  groupby_id: patient_id # Add groupby_id
+temporal:
+  prev_years: 3
+  
+# LightGBM hyperparameters (tune using Optuna or gridsearch)
+lgb_params:
+  boosting_type: gbdt
+  learning_rate: 0.05
+  num_leaves: 31
+  max_depth: -1
+  min_data_in_leaf: 20
+  feature_fraction: 0.8
+  bagging_fraction: 0.8
+  bagging_freq: 1
+  lambda_l1: 0.0
+  lambda_l2: 0.0
+  is_unbalance: true   # set true OR rely on scale_pos_weight
+  # scale_pos_weight is set automatically from train distribution
+
+num_boost_round: 2000
+early_stopping_rounds: 50
+verbose_eval: 100
+
+artifact:
+  out_dir: ./artifacts
+  model_name: clinical_model
+
+threshold_method: f1_max
+recall_target: 0.9   # if using recall_target thresholding
+
+precision_at_k: [0.01, 0.05]
+
+mlflow_experiment: lgbm_imbalanced_experiment
+
+max_onehot_cardinality: 20
