@@ -1,0 +1,31 @@
+# Likely Error Causes
+
+Label uncertainty:
+
+Diagnosis year uncertainty or mislabeling could reduce predictive signal.
+
+Subgroup imbalance:
+
+Some categories (e.g., race = Black) have fewer samples → lower performance.
+
+Feature availability/quality:
+
+Missing lab values or infrequent events can cause higher false negatives in specific subgroups.
+
+# Proposed Improvements
+
+Data Augmentation / Reweighting:
+
+Oversample underrepresented subgroups or apply subgroup-aware class weights in XGBoost.
+
+Feature Engineering:
+
+Introduce temporal rolling aggregates per subgroup to capture trends better.
+
+Label Smoothing / Probabilistic Targets:
+
+If diagnosis year is uncertain, consider modeling the label as a probability instead of binary.
+
+Threshold Tuning per Subgroup:
+
+Instead of one global threshold, adapt threshold per subgroup to balance sensitivity & specificity.

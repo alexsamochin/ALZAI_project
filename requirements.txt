@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pandas
+scikit-learn
+joblib
+lightgbm
+numpy
+pydantic
+glob
+logging
+typing 
+

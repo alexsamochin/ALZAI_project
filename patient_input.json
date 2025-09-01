@@ -1,0 +1,19 @@
+{
+  "features": {
+    "age": 65,
+    "sex": "M",
+    "region": "NE",
+    "payer": "Medicare",
+    "a1c": 7.8,
+    "ldl": 140,
+    "sbp": 138,
+    "bmi": 32.5,
+    "outpatient_visits": 5,
+    "er_visits": 1,
+    "inpatient_prev": true,
+    "meds_count": 8,
+    "annual_cost": 15000,
+    "smoker": true,
+    "exercise_min_week": 45
+  }
+}
