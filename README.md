@@ -1,6 +1,6 @@
 # ML Pipeline 
 
-# Project Architecture 
+## Project Structure 
 project/
 │── Dockerfile # Docker file for serving endpoint
 │── requirements.txt # Instalation requirements for serving endpoint
@@ -55,3 +55,4 @@ curl -X POST "http://localhost:8000/predict" \
   "predicted_probability": 0.34,
   "predicted_class": 1
 }
+
